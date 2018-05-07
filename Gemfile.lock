@@ -164,13 +164,13 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
   database_cleaner
-  factory_bot_rails
+  factory_bot_rails (~> 4.0)
   faker
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.11)
   rails (~> 5.2.0)
   rspec-rails
-  shoulda-matchers
+  shoulda-matchers (~> 3.1)
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

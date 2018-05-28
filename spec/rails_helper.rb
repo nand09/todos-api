@@ -10,6 +10,9 @@ require 'rspec/rails'
 # require database cleaner at the top level
 require 'database_cleaner'
 
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+
+
 # [...]
 # configure shoulda matchers to use rspec as the test framework and full matcher libraries for rails
 Shoulda::Matchers.configure do |config|
@@ -20,10 +23,12 @@ Shoulda::Matchers.configure do |config|
 end
 
 # [...]
-RSpec.configuration do |config|
+RSpec.configure do |config|
   # [...]
   # add `FactoryBot` methods
+  config.include RequestSpecHelper, type: :request
   config.include FactoryBot::Syntax::Methods
+
 
   # start by truncating all the tables but then use the faster transaction strategy the rest of the time.
   config.before(:suite) do
